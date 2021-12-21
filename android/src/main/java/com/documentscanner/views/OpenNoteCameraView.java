@@ -654,6 +654,7 @@ public class OpenNoteCameraView extends JavaCameraView implements PictureCallbac
         Uri fileUri = null;
         String folderName = "documents";
         File folder = new File(Environment.getExternalStorageDirectory().toString() + "/" + folderName);
+
         if (!folder.exists()) {
             folder.mkdirs();
             Log.d(TAG, "wrote: created folder " + folder.getPath());
@@ -733,6 +734,7 @@ public class OpenNoteCameraView extends JavaCameraView implements PictureCallbac
             mActivity.finish();
         } else {
             animateDocument(fileName, scannedDocument);
+            addImageToGallery(fileName, mContext);
             addImageToGallery(fileName, mContext);
         }
 
